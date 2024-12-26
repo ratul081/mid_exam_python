@@ -49,6 +49,14 @@ def main():
     Book("101", "The Hobbit", "J.R.R. Tolkien")
     Book("102", "Tomorrow", "George Orwell")
     Book("103", "To Kill a Mockingbird", "Harper Lee")
+    Book("104", "Pride and Prejudice", "Jane Austen")
+    Book("105", "1984", "George Orwell")
+    Book("106", "Moby Dick", "Herman Melville")
+    Book("107", "The Great Gatsby", "F. Scott Fitzgerald")
+    Book("108", "War and Peace", "Leo Tolstoy")
+    Book("109", "Crime and Punishment", "Fyodor Dostoevsky")
+    Book("110", "The Catcher in the Rye", "J.D. Salinger")
+    
     while True:
         print("\nMenu:")
         print("1. View All Books")
