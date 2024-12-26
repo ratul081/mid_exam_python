@@ -11,25 +11,29 @@ class Book:
         self.__book_id = book_id
         self.__title = title
         self.__author = author
-        self.__available = True
+        self.__availability = True
         Library.entry_book(self)
 
     def borrow_book(self):
-        if self.__available:
-            self.__available = False
+        if self.__availability:
+            self.__availability = False
             print(f"Book '{self.__title}' borrowed successfully.")
         else:
             print(f"Error: Book '{self.__title}' is already borrowed.")
 
     def return_book(self):
-        if not self.__available:
-            self.__available = True
-            print(f"Book '{self.__title}' returned successfully.")
+        if self.__availability:
+          print(f"Error: Book '{self.__title}' was not borrowed.")
         else:
-            print(f"Error: Book '{self.__title}' was not borrowed.")
+            self.__availability = True
+            print(f"Book '{self.__title}' returned successfully.")
 
     def view_book_info(self):
-        availability_status = "Available" if self.__available else "Not Available"
+        if self.__availability:
+          availability_status = "Available"
+        else:
+          availability_status = "Not Available"
+
         print(f"Book ID: {self.__book_id}, Title: {self.__title}, Author: {self.__author}, Availability: {availability_status}")
 
     @property
@@ -38,12 +42,12 @@ class Book:
 
     @property
     def availability(self):
-        return self.__available
+        return self.__availability
 
 
 def main():
     Book("101", "The Hobbit", "J.R.R. Tolkien")
-    Book("102", "1984", "George Orwell")
+    Book("102", "Tomorrow", "George Orwell")
     Book("103", "To Kill a Mockingbird", "Harper Lee")
     while True:
         print("\nMenu:")
